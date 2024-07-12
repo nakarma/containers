@@ -5,6 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt update \
     && apt -y full-upgrade \
     && apt-get -y --no-install-recommends install \
+    bluez bluez-firmware bluez-obexd \
     dbus systemd systemd-sysv cron anacron ecryptfs-utils \
     desktop-base gdm3 gnome-session gnome-shell \
     gnome-terminal gnome-shell-extensions gnome-shell-extensions-extra \

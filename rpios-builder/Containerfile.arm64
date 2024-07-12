@@ -1,0 +1,12 @@
+FROM ghcr.io/nakarma/containers/rpios-base:arm64-latest
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt update \
+    && apt -y full-upgrade \
+    && apt -y install build-essential neovim git subversion fakeroot autoconf automake \
+    && apt-get -y --purge autoremove \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+CMD ["bash"]
