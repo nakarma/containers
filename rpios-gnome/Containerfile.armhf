@@ -1,0 +1,48 @@
+FROM nakarma/containers/rpios-mesa:armhf-latest
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt update \
+    && apt -y full-upgrade \
+    && apt-get -y --no-install-recommends install \
+    dbus systemd systemd-sysv cron anacron ecryptfs-utils \
+    desktop-base gdm3 gnome-session gnome-shell \
+    gnome-terminal gnome-shell-extensions gnome-shell-extensions-extra \
+    gnome-shell-extension-appindicator gnome-shell-extension-arc-menu \
+    gnome-shell-extension-autohidetopbar gnome-shell-extension-bluetooth-quick-connect \
+    gnome-shell-extension-caffeine gnome-shell-extension-dashtodock \
+    gnome-shell-extension-dash-to-panel gnome-shell-extension-desktop-icons-ng \
+    gnome-shell-extension-gamemode gnome-shell-extension-gsconnect \
+    gnome-shell-extension-hide-activities gnome-shell-extension-impatience \
+    gnome-shell-extension-no-annoyance gnome-shell-extension-prefs \
+    gnome-shell-extension-system-monitor gnome-shell-extension-tiling-assistant \
+    gnome-shell-extension-top-icons-plus gnome-shell-extension-vertical-overview \
+    gnome-shell-extension-weather \
+    gnome-accessibility-themes gnome-backgrounds gnome-icon-theme gnome-keyring \
+    gnome-menus gnome-nettool gnome-online-accounts gnome-packagekit \
+    gnome-remote-desktop gnome-settings-daemon gnome-system-monitor \
+    gnome-system-tools gnome-text-editor gnome-themes-extra gnome-tweaks \
+    gnome-user-share gnome-video-effects gnome-weather \
+    eog file-roller gcr nautilus nautilus-extension-gnome-terminal orca \
+    gnome-calculator gnome-calendar gnome-characters gnome-clocks \
+    gnome-colors gnome-control-center gnome-dictionary gnome-font-viewer \
+    wireplumber polkitd remmina seahorse zenity \
+    papirus-icon-theme \
+    neovim mpv \
+    synaptic flatpak \
+    && apt-get -y --purge autoremove \
+    && apt-get clean \
+    && rm -rf \
+    /var/lib/apt/lists/* \
+    /var/log/alternatives.log \
+    /var/log/apt/history.log \
+    /var/log/apt/term.log \
+    /var/log/dpkg.log
+
+RUN systemctl enable gdm.service
+
+STOPSIGNAL SIGRTMIN+3
+
+#VOLUME [ "/sys/fs/cgroup", "/run", "/run/lock", "/tmp" ]
+
+CMD [ "/sbin/init" ]
