@@ -35,7 +35,7 @@ esac
 }
 
 IMG() {
-podman build --squash -t $IMAGE:$ARCH-latest -f ./Containerfile.$ARCH
+podman build --squash -t $REGISTRY$IMAGE:$ARCH-latest -f ./Containerfile.$ARCH
 }
 
 CHECK() {

@@ -1,9 +1,10 @@
 #!/bin/bash
 
 IMAGE=${PWD##*/}
+REGISTRY=ghcr.io/nakarma/containers/
 
 BUILD() {
-    podman build -t $IMAGE:$ARCH-latest -f $1
+    podman build -t $REGISTRY$IMAGE:$ARCH-latest -f $1
 }
 
 case "$1" in

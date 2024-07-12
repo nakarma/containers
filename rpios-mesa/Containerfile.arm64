@@ -1,4 +1,4 @@
-FROM nakarma/containers/rpios-base:arm64-latest
+FROM ghcr.io/nakarma/containers/rpios-base:arm64-latest
 
 ENV DEBIAN_FRONTEND noninteractive
 

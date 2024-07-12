@@ -1,4 +1,4 @@
-FROM nakarma/containers/rpios-mesa:armhf-latest
+FROM ghcr.io/nakarma/containers/rpios-mesa:armhf-latest
 
 ENV DEBIAN_FRONTEND noninteractive
 
