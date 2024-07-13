@@ -28,7 +28,7 @@ RUN apt update \
     gnome-calculator gnome-calendar gnome-characters gnome-clocks \
     gnome-colors gnome-control-center gnome-dictionary gnome-font-viewer \
     wireplumber polkitd remmina seahorse zenity \
-    papirus-icon-theme \
+    papirus-icon-theme libnotify-bin \
     neovim mpv \
     synaptic flatpak \
     libreoffice-gnome foliate calibre xournalpp texlive \
