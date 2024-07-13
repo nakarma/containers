@@ -5,6 +5,11 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt update \
     && apt -y full-upgrade \
     && apt -y install libsdl*dev \
+    libsdl2-dev libsdl2-ttf-dev libsdl-image1.2-dev \
+    libsdl-sound1.2-dev libsdl2-mixer-dev libsdl-console-dev \
+    libsdl2-gfx-dev libsdl-ttf2.0-dev libsdl2-net-dev \
+    libsdl-gfx1.2-dev libsdl-mixer1.2-dev libsdl1.2-dev libsdl2-image-dev \
+    libsdl-net1.2-dev \
     && apt -y build-dep mesa \
     && apt-get -y --purge autoremove \
     && apt-get clean \
